@@ -1,6 +1,6 @@
 import { getAllArticles } from "./(server)/api";
-import { ROUTING } from "./routing";
 import AppLink from "./shared/components/app-link";
+import { ArticlePreview } from "./ArticlePreview";
 
 const ARTICLES_PER_PAGE = 10;
 
@@ -22,7 +22,8 @@ export default async function Home({searchParams} : { searchParams: Record<strin
     <ul>
     {articles.map((article) => (
       <li key={article.name}>
-        <AppLink href={ROUTING.article(article.name)} >{article.header}</AppLink></li>
+        <ArticlePreview name={article.header} text={article.header} />
+        </li> 
     ))}
     </ul>
     <AppLink href={nextPageUrl}>Next</AppLink>
